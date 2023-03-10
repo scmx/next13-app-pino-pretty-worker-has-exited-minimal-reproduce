@@ -1,10 +1,17 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
+import { prettyLogger } from '@/prettyLogger'
+import { jsonLogger } from '@/jsonLogger'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({ params }: { params: { pretty?: string } }) {
+  if (params.pretty) {
+    prettyLogger.info('app page pino-pretty crashes')
+  } else {
+    jsonLogger.info('app page pino json works')
+  }
   return (
     <main className={styles.main}>
       <div className={styles.description}>
