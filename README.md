@@ -46,6 +46,16 @@ reproduce that error.
 > requireStack: []
 > }
 
+### A workaround
+You can pipe to pino-pretty instead.
+
+`npx next dev | pino-pretty`
+
+For example:
+```json
+"dev": "next dev | pino-pretty -m message -i time -c"
+```
+
 ---
 
 ---
